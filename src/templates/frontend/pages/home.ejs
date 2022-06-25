@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- HEAD -->
+  <%- include('../includes/_head') %>
+
+  <body>
+    <!-- HEADER -->
+    <header class="h-100 w-100 bg-white" style="box-sizing: border-box">
+        <%- include('../includes/_header') %>
+    </header>
+    <!-- CONTENT -->
+    <main class="h-100 w-100" style="box-sizing: border-box; background-color: #f2f6ff">
+        <!-- HERE your content -->
+        <div class="content-3-7 overflow-hidden container-xxl mx-auto position-relative" style="font-family: 'Poppins', sans-serif">
+          <div class="container mx-auto">
+            <div class="d-flex flex-column text-center w-100" style="margin-bottom: 2.25rem">
+              <h2 class="title-text">Latest Articles</h2>
+              <p class="caption-text mx-auto">
+                Find the latest news or articles<br />
+                from many trusted and credible sources
+              </p>
+            </div>
+            <div class="d-flex flex-wrap">
+              <% data.articles.forEach(function(article) { %>
+
+                <div class="mx-auto card-item position-relative w-100">
+                  <div class="card-item-outline bg-white d-flex flex-column position-relative overflow-hidden h-100">
+                    <h2 class="price-title">
+                      <a href="<%= article.url %>" target="_blank"><%= article.title %></a>
+                    </h2>
+                    <p class="price-caption"><%= article.description %></p>
+                    <div class="price-list">
+                      <p class="d-flex align-items-center check">
+                        <span class="span-icon d-inline-flex align-items-center justify-content-center flex-shrink-0">
+                          <img class="img-fluid"
+                            src="http://api.elements.buildwithangga.com/storage/files/2/assets/Content/Content3/Content-3-4.png"
+                            alt="" /> </span><%= article.source.name %> &nbsp; 
+                        <span class="span-icon d-inline-flex align-items-center justify-content-center flex-shrink-0">
+                          <img class="img-fluid"
+                            src="http://api.elements.buildwithangga.com/storage/files/2/assets/Content/Content3/Content-3-4.png"
+                            alt="" /> </span><%= func.timeAgo(article.publishedAt) %>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                
+              <% }) %>
+            </div>
+          </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="h-100 w-100 bg-white" style="box-sizing: border-box">
+        <%- include('../includes/_footer') %>
+    </footer>
+    <!-- FOOTER -->
+  </body>
+</html>
